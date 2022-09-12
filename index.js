@@ -1,0 +1,128 @@
+document.getElementById("menu").addEventListener("click",()=>{
+    if(document.getElementById("mobile-menu").style.display!="none")
+    {
+        document.getElementById("mobile-menu").style.display="none";
+    }
+    else
+    {
+        document.getElementById("mobile-menu").style.display="block";
+    }
+    }
+)
+document.getElementById("cross-7").addEventListener("click",()=>{
+    document.getElementById("wrong").style.display="none";
+   }
+)
+document.getElementById("cross-1").addEventListener("click",()=>{
+     document.getElementById("success").style.display="none";
+    }
+)
+document.getElementById("cross-2").addEventListener("click",()=>{
+    document.getElementById("box-2").style.display="none";
+   }
+)
+document.getElementById("cross-3").addEventListener("click",()=>{
+    document.getElementById("box-3").style.display="none";
+   }
+)
+document.getElementById("cross-4").addEventListener("click",()=>{
+    document.getElementById("box-4").style.display="none";
+   }
+)
+document.getElementById("cross-5").addEventListener("click",()=>{
+    document.getElementById("box-5").style.display="none";
+   }
+)
+document.getElementById("cross-6").addEventListener("click",()=>{
+    document.getElementById("box-6").style.display="none";
+   }
+)
+let c=0
+let c1=0
+let c2=0
+let c3=0
+let c4=0
+document.getElementById("firstname").addEventListener("blur",()=>{
+    let regex=/^[a-zA-z]([a-z0-9A-Z]){0,15}/;
+    if(regex.test(document.getElementById("firstname").value))
+    {
+        document.getElementById("box-2").style.display="none";
+        c=0;
+    }
+    else
+    {
+        document.getElementById("box-2").style.display="inline-flex";
+        c=c+1;
+    }
+})
+document.getElementById("secondname").addEventListener("blur",()=>{
+    let regex2=/^[a-zA-z]([a-z0-9A-Z]){0,15}/;
+    if(regex2.test(document.getElementById("secondname").value))
+    {
+        document.getElementById("box-3").style.display="none";
+        c1=0;
+    }
+    else
+    {
+        document.getElementById("box-3").style.display="inline-flex";
+        c1=c1+1;
+    }
+})
+document.getElementById("email").addEventListener("blur",()=>{
+    let regex3=/f\d+@hyderabad.bits-pilani.ac.in/;
+    if(regex3.test(document.getElementById("email").value))
+    {
+        document.getElementById("box-4").style.display="none";
+        c2=0;
+    }
+    else
+    {
+        document.getElementById("box-4").style.display="inline-flex";
+        c2=c2+1;
+    }
+})
+document.getElementById("password").addEventListener("blur",()=>{
+    let regex4=/(?=@[a-zA-Z0-9])+/;
+    if(regex4.test(document.getElementById("password").value))
+    {
+        document.getElementById("box-5").style.display="none";
+        c3=0;
+    }
+    else
+    {
+        document.getElementById("box-5").style.display="inline-flex";
+        c3=c3+1;
+    }
+})
+document.getElementById("text").addEventListener("blur",()=>{
+    let regex5=/.{20,100}/;
+    if(regex5.test(document.getElementById("text").value))
+    {
+        document.getElementById("box-6").style.display="none";
+        c4=0;
+    }
+    else
+    {
+        document.getElementById("box-6").style.display="inline-flex";
+        c4=c4+1;
+    }
+})
+document.getElementById("sign").addEventListener("click",(e)=>{
+    e.preventDefault();
+    if((c+c1+c2+c3+c4)===0)
+    {
+        document.getElementById("success").style.display="block";
+        document.getElementById("firstname").value="";
+        document.getElementById("secondname").value="";
+        document.getElementById("email").value="";
+        document.getElementById("password").value="";
+        document.getElementById("text").value="";
+    }
+    else{
+        document.getElementById("wrong").style.display="block";
+    }
+    setTimeout(()=>{
+        document.getElementById("wrong").style.display="none";
+        document.getElementById("success").style.display="none";
+    },3000)
+})
